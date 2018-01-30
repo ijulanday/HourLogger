@@ -16,13 +16,16 @@
         android:layout_marginBottom="16dp"
         android:layout_marginRight="16dp"
         android:background="@color/colorPrimaryDark"
+        android:onClick="onAddField"
         app:srcCompat="?android:attr/actionModePasteDrawable" />
 
-    <ListView
-        android:id="@+id/list_of_things"
+    <LinearLayout
+        android:id="@+id/parent_linear_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </ListView>
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    </LinearLayout>
 
 
 
@@ -32,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:fontFamily="monospace"
-        android:text="nothing, here yet!"
+        android:text="keep track of all ya stuff ~"
         android:textAlignment="center"
         android:textColor="#54575b"
         android:textSize="16dp" />
