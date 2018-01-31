@@ -1,24 +1,32 @@
 package com.example.ianulanday.hourlogger;
 
 import android.content.Context;
-import android.content.Intent;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.text.Layout;
+import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
+/*
+====================
+    Hour Logger
+====================
 
-import java.util.List;
+Made this to learn about how memory is handled in AS as well as UI design practice.
+Because I want everything to be displayed on one screen, I'm doing everything in just
+one activity, but that causes some memory problems.
+
+1)  Some things I haven't gotten to that I want to eventually: The text "whatcha doin'?"
+    EditText view needs to somehow retain its value after you close the app;
+    parentLinearLayout is restarted when the screen is rotated, so I need to use a
+    ViewModel there somehow
+2)  Glaring issue: if you add another field, entering time does nothing.
+
+ */
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,12 +42,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onAddField(View view) {
+
+        /*
+        big problem: I can't define totalTimeView here. Probs because i'd need to
+            setContentView or something, but that crashes the app. I tried making
+            another class and calling it here after inflating parent layout in an
+            attempt to use the constructor to make addTime and call
+            setOnKeyListener, but that just crashed the app upon clicking the FAB.
+        */
+
+
         LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View rowView = inflater.inflate(R.layout.logger_list_detail, null);
         parentLinearLayout.addView(rowView);
 
+        //addTime is the "+ time" EditText view.
         final EditText addTime = (EditText)findViewById(R.id.add_stuff);
         addTime.setOnKeyListener(new View.OnKeyListener() {
+
             @Override
             public boolean onKey(View view, int keyCode, KeyEvent keyEvent) {
                 if ((keyEvent.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
@@ -68,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         parentLinearLayout.removeView((View)view.getParent());
         totalTime = 0;
     }
-
+    
     public void keepTime(String userTime) {
         totalTimeView = (TextView)findViewById(R.id.total_time);
 

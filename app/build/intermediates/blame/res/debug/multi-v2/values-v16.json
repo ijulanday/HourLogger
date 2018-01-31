@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\yung_\\AndroidStudioProjects\\hourLogger\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
+            "outputFile": "C:\\Users\\ianulanday\\AndroidStudioProjects\\HourLogger\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\yung_\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\2204450009bf2aeacbf371daa8e0afe3\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\ianulanday\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\fdbeff364ac800c5332ba5d1731e9942\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\yung_\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\6fd9256a46ef90aa55f60152e494b383\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\ianulanday\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\9b85eaaf6de6f08a6768295246be2e82\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
