@@ -22,7 +22,6 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    //FloatingActionButton fab;
     LinearLayout parentLinearLayout;
     TextView totalTimeView;
     Integer totalTime = 0;
@@ -37,21 +36,32 @@ public class MainActivity extends AppCompatActivity {
     public void onAddField(View view) {
         LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View rowView = inflater.inflate(R.layout.logger_list_detail, null);
-        parentLinearLayout.addView(rowView, parentLinearLayout.getChildCount() - 1);
+        parentLinearLayout.addView(rowView);
 
         final EditText addTime = (EditText)findViewById(R.id.add_stuff);
         addTime.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View view, int keyCode, KeyEvent keyEvent) {
                 if ((keyEvent.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
-                    keepTime(addTime.getText().toString());
-                    Toast.makeText(getApplicationContext(), "Time recorded!", Toast.LENGTH_SHORT).show();
-                    addTime.setText("");
-                    return true;
+
+                    String addTimeStuff = addTime.getText().toString();
+                    if (addTimeStuff.isEmpty() == true) {
+                        Toast.makeText(getApplicationContext(), "Nothing happened!", Toast.LENGTH_SHORT).show();
+                        return true;
+                    }
+                    else {
+                        keepTime(addTime.getText().toString());
+                        Toast.makeText(getApplicationContext(), "Time recorded!", Toast.LENGTH_SHORT).show();
+                        addTime.setText("");
+                        return true;
+                    }
                 }
+
                 return false;
             }
         });
+
+
     }
 
     public void onDelete(View view) {
