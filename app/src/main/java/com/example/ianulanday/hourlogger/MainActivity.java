@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     LinearLayout parentLinearLayout;
     TextView totalTimeView;
-    Integer totalTime = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,10 +51,14 @@ public class MainActivity extends AppCompatActivity {
             setOnKeyListener, but that just crashed the app upon clicking the FAB.
         */
 
-
         LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        final View rowView = inflater.inflate(R.layout.logger_list_detail, null);
+        View rowView = inflater.inflate(R.layout.logger_list_detail, null);
         parentLinearLayout.addView(rowView);
+
+        totalTimeView = (TextView)rowView.findViewById(R.id.total_time);
+        totalTimeView.setText("wow!");
+
+        Integer totalTime = 0;
 
         //addTime is the "+ time" EditText view.
         final EditText addTime = (EditText)findViewById(R.id.add_stuff);
@@ -70,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     }
                     else {
-                        keepTime(addTime.getText().toString());
+                        //TODO (1): Add value in entered by user into addTime to totalTime, and set totalTime text
                         Toast.makeText(getApplicationContext(), "Time recorded!", Toast.LENGTH_SHORT).show();
                         addTime.setText("");
                         return true;
@@ -86,15 +90,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onDelete(View view) {
         parentLinearLayout.removeView((View)view.getParent());
-        totalTime = 0;
-    }
-    
-    public void keepTime(String userTime) {
-        totalTimeView = (TextView)findViewById(R.id.total_time);
 
-        totalTime += Integer.parseInt(userTime);
-        userTime = totalTime.toString();
-
-        totalTimeView.setText(userTime);
     }
+
 }
