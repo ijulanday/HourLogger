@@ -16,7 +16,9 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.AppCompat" >
-        <activity android:name="com.example.ianulanday.hourlogger.MainActivity" >
+        <activity
+            android:name="com.example.ianulanday.hourlogger.MainActivity"
+            android:configChanges="keyboardHidden|orientation" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

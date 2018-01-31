@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout parentLinearLayout;
     TextView totalTimeView;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,9 +55,10 @@ public class MainActivity extends AppCompatActivity {
         parentLinearLayout.addView(rowView);
 
         totalTimeView = (TextView)rowView.findViewById(R.id.total_time);
-        totalTimeView.setText("wow!");
+        totalTimeView.setText("-hrs-");
 
-        Integer totalTime = 0;
+        final Integer totalTime = 0;
+        final ActivityTime activityTime = new ActivityTime();
 
         //addTime is the "+ time" EditText view.
         final EditText addTime = (EditText)findViewById(R.id.add_stuff);
@@ -74,7 +74,8 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     }
                     else {
-                        //TODO (1): Add value in entered by user into addTime to totalTime, and set totalTime text
+                        activityTime.addTime(addTimeStuff);
+                        totalTimeView.setText(activityTime.getNetTimeStr());
                         Toast.makeText(getApplicationContext(), "Time recorded!", Toast.LENGTH_SHORT).show();
                         addTime.setText("");
                         return true;

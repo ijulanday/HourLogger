@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml:2:1-20:12
-INJECTED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml:2:1-20:12
-INJECTED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml:2:1-20:12
-INJECTED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml:2:1-20:12
+ADDED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml:2:1-21:12
+INJECTED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml:2:1-21:12
+INJECTED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml:2:1-21:12
+INJECTED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml:2:1-21:12
 MERGED from [android.arch.lifecycle:extensions:1.1.0] C:\Users\ianulanday\.gradle\caches\transforms-1\files-1.1\extensions-1.1.0.aar\1160a8868cdc7599e3d73efa102de793\AndroidManifest.xml:17:1-30:12
 MERGED from [com.android.support:design:26.1.0] C:\Users\ianulanday\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\42483b79e87c9462160ce88c6e5661f6\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:mediarouter-v7:26.1.0] C:\Users\ianulanday\.gradle\caches\transforms-1\files-1.1\mediarouter-v7-26.1.0.aar\78d9a4bcf95f2e11d9ebe7e67e956896\AndroidManifest.xml:17:1-28:12
@@ -25,25 +25,25 @@ MERGED from [android.arch.lifecycle:livedata:1.1.0] C:\Users\ianulanday\.gradle\
 MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\ianulanday\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\b27e24cef5a6501faf177bebd805bace\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.0] C:\Users\ianulanday\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\3866f5d6390835feb2e28ba79519e272\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\ianulanday\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\3fcc1cb90eb88190d61d46064d6ac6cd\AndroidManifest.xml:17:1-22:12
-INJECTED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml:2:1-20:12
-INJECTED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml:2:1-20:12
-INJECTED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml:2:1-20:12
+INJECTED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml:2:1-21:12
+INJECTED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml:2:1-21:12
+INJECTED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml:2:1-21:12
 	package
 		ADDED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml:3:5-48
 		INJECTED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml:2:1-20:12
+		ADDED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml:2:1-21:12
 		INJECTED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml:2:1-20:12
+		ADDED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml:2:1-21:12
 		INJECTED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml:5:5-18:19
+ADDED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml:5:5-19:19
 MERGED from [android.arch.lifecycle:extensions:1.1.0] C:\Users\ianulanday\.gradle\caches\transforms-1\files-1.1\extensions-1.1.0.aar\1160a8868cdc7599e3d73efa102de793\AndroidManifest.xml:22:5-28:19
 MERGED from [android.arch.lifecycle:extensions:1.1.0] C:\Users\ianulanday\.gradle\caches\transforms-1\files-1.1\extensions-1.1.0.aar\1160a8868cdc7599e3d73efa102de793\AndroidManifest.xml:22:5-28:19
 MERGED from [com.android.support:design:26.1.0] C:\Users\ianulanday\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\42483b79e87c9462160ce88c6e5661f6\AndroidManifest.xml:25:5-29:19
@@ -87,19 +87,21 @@ MERGED from [com.android.support:support-compat:26.1.0] C:\Users\ianulanday\.gra
 	android:theme
 		ADDED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml:10:9-47
 activity#com.example.ianulanday.hourlogger.MainActivity
-ADDED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml:11:9-17:20
+ADDED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml:11:9-18:20
+	android:configChanges
+		ADDED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml:12:13-63
 	android:name
 		ADDED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml:11:19-47
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml:12:13-16:29
+ADDED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml:13:13-17:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml:13:17-69
+ADDED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml:14:17-69
 	android:name
-		ADDED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml:13:25-66
+		ADDED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml:14:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml:15:17-77
+ADDED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml:16:17-77
 	android:name
-		ADDED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml:15:27-74
+		ADDED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml:16:27-74
 uses-sdk
 INJECTED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\ianulanday\AndroidStudioProjects\HourLogger\app\src\main\AndroidManifest.xml
