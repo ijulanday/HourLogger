@@ -1,48 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <EditText
-        android:id="@+id/thing_name"
+    android:layout_height="100dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/baby_layout">
+
+    <TextView
+        android:id="@+id/item_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="whatcha doin'?"
         android:textSize="18sp"
         android:paddingLeft="12sp"
+        android:paddingVertical="10sp"
         app:layout_constraintLeft_toRightOf="parent"
         android:fontFamily="monospace"/>
 
     <TextView
-        android:id="@+id/total_time"
+        android:id="@+id/item_time"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        app:layout_constraintBaseline_toBaselineOf="@id/thing_name"
-        app:layout_constraintRight_toLeftOf="@+id/add_stuff"
+        app:layout_constraintBaseline_toBaselineOf="@id/item_name"
+        app:layout_constraintRight_toLeftOf="parent"
         android:paddingRight="12sp"
         android:text="-hrs-"
         android:textStyle="bold"
         android:textSize="16dp"
         android:fontFamily="monospace"/>
 
-    <EditText
-        android:id="@+id/add_stuff"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="time"
-        android:paddingRight="12sp"
-        app:layout_constraintRight_toLeftOf="@id/delete_button"
-        app:layout_constraintBaseline_toBaselineOf="@+id/thing_name"
-        android:hint="+ time"
-        android:text=""
-        android:fontFamily="monospace" />
 
-    <Button
-        android:id="@+id/delete_button"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        app:layout_constraintRight_toLeftOf="parent"
-        android:background="@android:drawable/ic_delete"
-        android:onClick="onDelete"/>
 </android.support.constraint.ConstraintLayout>

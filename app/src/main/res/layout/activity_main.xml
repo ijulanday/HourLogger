@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.example.ianulanday.hourlogger.MainActivity">
+    tools:context="com.example.ianulanday.hourlogger.MainActivity"
+    android:id="@+id/activity_main_layout">
 
 
     <android.support.design.widget.FloatingActionButton
@@ -19,13 +20,11 @@
         android:onClick="onAddField"
         app:srcCompat="?android:attr/actionModePasteDrawable" />
 
-    <LinearLayout
-        android:id="@+id/parent_linear_layout"
+    <ListView
+        android:id="@+id/activity_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-    </LinearLayout>
+        android:layout_height="200sp"
+        android:orientation="vertical" />
 
 
 

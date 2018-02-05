@@ -1,5 +1,15 @@
 <resources>
     <string name="app_name">Hour Logger</string>
-    <string name="action_favorite">Fav!</string>
-    <string name="action_settings">Settings!</string>
+
+    <string-array name="items">
+        <item>Work</item>
+        <item>School</item>
+        <item>RUST</item>
+    </string-array>
+
+    <string-array name="times">
+        <item>1</item>
+        <item>2</item>
+        <item>300</item>
+    </string-array>
 </resources>

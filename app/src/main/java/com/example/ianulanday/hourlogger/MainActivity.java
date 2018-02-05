@@ -1,15 +1,24 @@
 package com.example.ianulanday.hourlogger;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 /*
 ====================
@@ -30,68 +39,132 @@ one activity, but that causes some memory problems.
 
 public class MainActivity extends AppCompatActivity {
 
-    LinearLayout parentLinearLayout;
-    TextView totalTimeView;
+    ItemAdapter itemAdapter;
+    ListView activityListView;
+
+    ArrayList<String> items = new ArrayList<String>();
+    ArrayList<String> times = new ArrayList<String>();
+
+    PopupWindow pw;
+    View pwView;
+    EditText pwEntry;
+
+    PopupWindow enterHrsWindow;
+    View enterHrsView;
+    EditText enterHrsEntry;
+
+    LayoutInflater pwInflater;
+
+    int width = LinearLayout.LayoutParams.WRAP_CONTENT;
+    int height = LinearLayout.LayoutParams.WRAP_CONTENT;
+
+    CoordinatorLayout mainLayout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        parentLinearLayout = (LinearLayout)findViewById(R.id.parent_linear_layout);
+
+        mainLayout = findViewById(R.id.activity_main_layout);
+
+        Resources res = getResources();
+        activityListView = findViewById(R.id.activity_list);
+        //items = new ArrayList<String>(Arrays.asList(res.getStringArray(R.array.items)));
+        //times = new ArrayList<String>(Arrays.asList(res.getStringArray(R.array.times)));
+
+        itemAdapter = new ItemAdapter(this, items, times);
+        activityListView.setAdapter(itemAdapter);
+        activityListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                Toast.makeText(MainActivity.this, "something happened!",
+//                        Toast.LENGTH_SHORT).show();
+                onEditField(i);
+            }
+        });
+
+        pwInflater = (LayoutInflater)this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        pwView = pwInflater.inflate(R.layout.popup_window, null);
+        pw = new PopupWindow(pwView, width, height, true);
+        pwEntry = (EditText)pwView.findViewById(R.id.activity_name_input);
+
+        enterHrsView = pwInflater.inflate(R.layout.popup_window_2, null);
+        enterHrsWindow = new PopupWindow(enterHrsView, width, height, true);
+        enterHrsEntry = (EditText)enterHrsView.findViewById(R.id.activity_time_input);
     }
 
-    public void onAddField(View view) {
-
-        /*
-        big problem: I can't define totalTimeView here. Probs because i'd need to
-            setContentView or something, but that crashes the app. I tried making
-            another class and calling it here after inflating parent layout in an
-            attempt to use the constructor to make addTime and call
-            setOnKeyListener, but that just crashed the app upon clicking the FAB.
-        */
-
-        LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View rowView = inflater.inflate(R.layout.logger_list_detail, null);
-        parentLinearLayout.addView(rowView);
-
-        totalTimeView = (TextView)rowView.findViewById(R.id.total_time);
-        totalTimeView.setText("-hrs-");
-
-        final Integer totalTime = 0;
-        final ActivityTime activityTime = new ActivityTime();
-
-        //addTime is the "+ time" EditText view.
-        final EditText addTime = (EditText)findViewById(R.id.add_stuff);
-        addTime.setOnKeyListener(new View.OnKeyListener() {
-
+    public void onAddField (View view) {
+        pwEntry.setHint("name your new activity!");
+        pw.showAtLocation(mainLayout, Gravity.CENTER, 0, 0);
+        pwEntry.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
-            public boolean onKey(View view, int keyCode, KeyEvent keyEvent) {
-                if ((keyEvent.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
 
-                    String addTimeStuff = addTime.getText().toString();
-                    if (addTimeStuff.isEmpty() == true) {
-                        Toast.makeText(getApplicationContext(), "Nothing happened!", Toast.LENGTH_SHORT).show();
-                        return true;
+
+                if ( (actionId == EditorInfo.IME_ACTION_DONE) || ((event.getKeyCode() == KeyEvent.KEYCODE_ENTER)
+                        && (event.getAction() == KeyEvent.ACTION_DOWN ))) {
+
+                    String entry = pwEntry.getText().toString();
+
+                    if (!entry.isEmpty()) {
+                         items.add(entry);
+                         times.add("0.0");
+                         Toast.makeText(MainActivity.this, "new activity added!",
+                                 Toast.LENGTH_SHORT).show();
+                    } else {
+                         Toast.makeText(MainActivity.this, "nothing happened!",
+                                 Toast.LENGTH_SHORT).show();
                     }
-                    else {
-                        activityTime.addTime(addTimeStuff);
-                        totalTimeView.setText(activityTime.getNetTimeStr());
-                        Toast.makeText(getApplicationContext(), "Time recorded!", Toast.LENGTH_SHORT).show();
-                        addTime.setText("");
-                        return true;
+
+                    pwEntry.setText("");
+                    pw.dismiss();
+                    return true;
+                 }
+
+                 return false;
+             }
+         });
+
+        itemAdapter.notifyDataSetChanged();
+    }
+
+    public void onEditField (final int i) {
+        enterHrsEntry.setHint("enter some time");
+        enterHrsWindow.showAtLocation(mainLayout, Gravity.CENTER, 0, 0);
+        enterHrsEntry.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+
+
+                if ( (actionId == EditorInfo.IME_ACTION_DONE) || ((event.getKeyCode() == KeyEvent.KEYCODE_ENTER)
+                        && (event.getAction() == KeyEvent.ACTION_DOWN ))) {
+
+                    String entry = enterHrsEntry.getText().toString();
+
+                    if (!entry.isEmpty()) {
+
+                        Double timeDouble = Double.parseDouble(times.get(i));
+                        timeDouble += Double.parseDouble(entry);
+                        times.set(i, timeDouble.toString());
+
+                        Toast.makeText(MainActivity.this, "activity "+ items.get(i) +" now has "
+                                + times.get(i) + " hrs logged.", Toast.LENGTH_LONG).show();
+                        itemAdapter.notifyDataSetChanged();
+                    } else {
+                        Toast.makeText(MainActivity.this, "nothing happened!",
+                                Toast.LENGTH_SHORT).show();
                     }
+
+                    enterHrsEntry.setText("");
+                    enterHrsWindow.dismiss();
+                    return true;
                 }
 
                 return false;
             }
         });
 
-
+        itemAdapter.notifyDataSetChanged();
     }
-
-    public void onDelete(View view) {
-        parentLinearLayout.removeView((View)view.getParent());
-
-    }
-
 }

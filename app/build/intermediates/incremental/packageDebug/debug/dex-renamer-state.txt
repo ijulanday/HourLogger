@@ -1,4 +1,4 @@
-#Wed Jan 31 15:09:11 MST 2018
+#Mon Feb 05 15:27:32 MST 2018
 path.1=classes.dex
 path.0=classes.dex
 renamed.5=classes6.dex
@@ -7,12 +7,12 @@ renamed.3=classes4.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
 renamed.0=classes.dex
-base.5=C\:\\Users\\ianulanday\\AndroidStudioProjects\\HourLogger\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\33
-base.4=C\:\\Users\\ianulanday\\AndroidStudioProjects\\HourLogger\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\35
-base.3=C\:\\Users\\ianulanday\\AndroidStudioProjects\\HourLogger\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\30
-base.2=C\:\\Users\\ianulanday\\AndroidStudioProjects\\HourLogger\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\32
-base.1=C\:\\Users\\ianulanday\\AndroidStudioProjects\\HourLogger\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\31
-base.0=C\:\\Users\\ianulanday\\AndroidStudioProjects\\HourLogger\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\34
+base.5=C\:\\Users\\ianulanday\\AndroidStudioProjects\\HourLogger\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\50
+base.4=C\:\\Users\\ianulanday\\AndroidStudioProjects\\HourLogger\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\52
+base.3=C\:\\Users\\ianulanday\\AndroidStudioProjects\\HourLogger\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\49
+base.2=C\:\\Users\\ianulanday\\AndroidStudioProjects\\HourLogger\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\51
+base.1=C\:\\Users\\ianulanday\\AndroidStudioProjects\\HourLogger\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\54
+base.0=C\:\\Users\\ianulanday\\AndroidStudioProjects\\HourLogger\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\53
 path.5=classes.dex
 path.4=classes.dex
 path.3=classes.dex
