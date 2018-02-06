@@ -144,11 +144,10 @@ public class MainActivity extends AppCompatActivity {
                         timeDouble += Double.parseDouble(entry);
                         times.set(i, timeDouble.toString());
 
-                        Toast.makeText(MainActivity.this, "activity " + items.get(i) + " now has "
-                                + times.get(i) + " hrs logged.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, "Added " + entry + " hours to \"" + items.get(i) + ".\"", Toast.LENGTH_LONG).show();
                         itemAdapter.notifyDataSetChanged();
                     } else {
-                        Toast.makeText(MainActivity.this, "nothing happened!",
+                        Toast.makeText(MainActivity.this, "Never mind!",
                                 Toast.LENGTH_SHORT).show();
                     }
 
@@ -167,11 +166,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void onDelete(View view) {
         enterHrsWindow.dismiss();
+
+        Toast.makeText(MainActivity.this, "Activity \"" + items.get(itemClickedIndex) + "\" has been removed!",
+                Toast.LENGTH_SHORT).show();
+
         times.remove(itemClickedIndex);
         items.remove(itemClickedIndex);
-
-        Toast.makeText(MainActivity.this, "itemClickedIndex: " + itemClickedIndex,
-                Toast.LENGTH_SHORT).show();
 
         itemAdapter.notifyDataSetChanged();
     }

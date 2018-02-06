@@ -23,7 +23,7 @@
     <ListView
         android:id="@+id/activity_list"
         android:layout_width="match_parent"
-        android:layout_height="200sp"
+        android:layout_height="wrap_content"
         android:orientation="vertical" />
 
 
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:fontFamily="monospace"
-        android:text="keep track of all ya stuff ~"
+        android:text="a very simple app ~"
         android:textAlignment="center"
         android:textColor="#54575b"
         android:textSize="16dp" />
