@@ -26,14 +26,8 @@ import java.util.ArrayList;
 ====================
 
 Made this to learn about how memory is handled in AS as well as UI design practice.
-Because I want everything to be displayed on one screen, I'm doing everything in just
-one activity, but that causes some memory problems.
 
-1)  Some things I haven't gotten to that I want to eventually: The text "whatcha doin'?"
-    EditText view needs to somehow retain its value after you close the app;
-    parentLinearLayout is restarted when the screen is rotated, so I need to use a
-    ViewModel there somehow
-2)  Glaring issue: if you add another field, entering time does nothing.
+Still doesn't store anything in memory! coming soon...
 
  */
 
