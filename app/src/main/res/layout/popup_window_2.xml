@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/popupBackground"
-    android:layout_gravity="center"
-    >
+    android:layout_gravity="center">
 
     <EditText
         android:id="@+id/activity_time_input"
-        android:layout_width="300dp"
+        android:layout_width="250dp"
         android:layout_height="75dp"
         android:hint="enter some time"
         android:textColor="@color/colorAccent"
@@ -18,5 +17,13 @@
         android:imeOptions="actionDone"
         android:inputType="numberDecimal"
         />
+
+    <Button
+        android:text="delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/activity_time_input"
+        app:layout_constraintBaseline_toBaselineOf="@+id/activity_time_input"
+        android:onClick="onDelete"/>
 
 </android.support.constraint.ConstraintLayout>

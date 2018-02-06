@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
     CoordinatorLayout mainLayout;
 
+    int itemClickedIndex = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,8 +71,8 @@ public class MainActivity extends AppCompatActivity {
 
         Resources res = getResources();
         activityListView = findViewById(R.id.activity_list);
-        //items = new ArrayList<String>(Arrays.asList(res.getStringArray(R.array.items)));
-        //times = new ArrayList<String>(Arrays.asList(res.getStringArray(R.array.times)));
+
+        //read files from memory
 
         itemAdapter = new ItemAdapter(this, items, times);
         activityListView.setAdapter(itemAdapter);
@@ -81,20 +82,21 @@ public class MainActivity extends AppCompatActivity {
 //                Toast.makeText(MainActivity.this, "something happened!",
 //                        Toast.LENGTH_SHORT).show();
                 onEditField(i);
+                itemClickedIndex = i;
             }
         });
 
-        pwInflater = (LayoutInflater)this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        pwInflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         pwView = pwInflater.inflate(R.layout.popup_window, null);
         pw = new PopupWindow(pwView, width, height, true);
-        pwEntry = (EditText)pwView.findViewById(R.id.activity_name_input);
+        pwEntry = (EditText) pwView.findViewById(R.id.activity_name_input);
 
         enterHrsView = pwInflater.inflate(R.layout.popup_window_2, null);
         enterHrsWindow = new PopupWindow(enterHrsView, width, height, true);
-        enterHrsEntry = (EditText)enterHrsView.findViewById(R.id.activity_time_input);
+        enterHrsEntry = (EditText) enterHrsView.findViewById(R.id.activity_time_input);
     }
 
-    public void onAddField (View view) {
+    public void onAddField(View view) {
         pwEntry.setHint("name your new activity!");
         pw.showAtLocation(mainLayout, Gravity.CENTER, 0, 0);
         pwEntry.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -102,34 +104,34 @@ public class MainActivity extends AppCompatActivity {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
 
 
-                if ( (actionId == EditorInfo.IME_ACTION_DONE) || ((event.getKeyCode() == KeyEvent.KEYCODE_ENTER)
-                        && (event.getAction() == KeyEvent.ACTION_DOWN ))) {
+                if ((actionId == EditorInfo.IME_ACTION_DONE) || ((event.getKeyCode() == KeyEvent.KEYCODE_ENTER)
+                        && (event.getAction() == KeyEvent.ACTION_DOWN))) {
 
                     String entry = pwEntry.getText().toString();
 
                     if (!entry.isEmpty()) {
-                         items.add(entry);
-                         times.add("0.0");
-                         Toast.makeText(MainActivity.this, "new activity added!",
-                                 Toast.LENGTH_SHORT).show();
+                        items.add(entry);
+                        times.add("0.0");
+                        Toast.makeText(MainActivity.this, "new activity added!",
+                                Toast.LENGTH_SHORT).show();
                     } else {
-                         Toast.makeText(MainActivity.this, "nothing happened!",
-                                 Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "nothing happened!",
+                                Toast.LENGTH_SHORT).show();
                     }
 
                     pwEntry.setText("");
                     pw.dismiss();
                     return true;
-                 }
+                }
 
-                 return false;
-             }
-         });
+                return false;
+            }
+        });
 
         itemAdapter.notifyDataSetChanged();
     }
 
-    public void onEditField (final int i) {
+    public void onEditField(final int i) {
         enterHrsEntry.setHint("enter some time");
         enterHrsWindow.showAtLocation(mainLayout, Gravity.CENTER, 0, 0);
         enterHrsEntry.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -137,8 +139,8 @@ public class MainActivity extends AppCompatActivity {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
 
 
-                if ( (actionId == EditorInfo.IME_ACTION_DONE) || ((event.getKeyCode() == KeyEvent.KEYCODE_ENTER)
-                        && (event.getAction() == KeyEvent.ACTION_DOWN ))) {
+                if ((actionId == EditorInfo.IME_ACTION_DONE) || ((event.getKeyCode() == KeyEvent.KEYCODE_ENTER)
+                        && (event.getAction() == KeyEvent.ACTION_DOWN))) {
 
                     String entry = enterHrsEntry.getText().toString();
 
@@ -148,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
                         timeDouble += Double.parseDouble(entry);
                         times.set(i, timeDouble.toString());
 
-                        Toast.makeText(MainActivity.this, "activity "+ items.get(i) +" now has "
+                        Toast.makeText(MainActivity.this, "activity " + items.get(i) + " now has "
                                 + times.get(i) + " hrs logged.", Toast.LENGTH_LONG).show();
                         itemAdapter.notifyDataSetChanged();
                     } else {
@@ -167,4 +169,17 @@ public class MainActivity extends AppCompatActivity {
 
         itemAdapter.notifyDataSetChanged();
     }
+
+
+    public void onDelete(View view) {
+        enterHrsWindow.dismiss();
+        times.remove(itemClickedIndex);
+        items.remove(itemClickedIndex);
+
+        Toast.makeText(MainActivity.this, "itemClickedIndex: " + itemClickedIndex,
+                Toast.LENGTH_SHORT).show();
+
+        itemAdapter.notifyDataSetChanged();
+    }
+
 }
