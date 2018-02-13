@@ -1,19 +1,4 @@
-#Tue Feb 06 13:22:58 MST 2018
-path.1=classes.dex
+#Thu Feb 08 11:53:32 MST 2018
+base.0=C\:\\Users\\yung_\\AndroidStudioProjects\\hourLogger\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\56
 path.0=classes.dex
-renamed.5=classes6.dex
-renamed.4=classes5.dex
-renamed.3=classes4.dex
-renamed.2=classes3.dex
-renamed.1=classes2.dex
 renamed.0=classes.dex
-base.5=C\:\\Users\\ianulanday\\AndroidStudioProjects\\HourLogger\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\50
-base.4=C\:\\Users\\ianulanday\\AndroidStudioProjects\\HourLogger\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\52
-base.3=C\:\\Users\\ianulanday\\AndroidStudioProjects\\HourLogger\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\49
-base.2=C\:\\Users\\ianulanday\\AndroidStudioProjects\\HourLogger\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\51
-base.1=C\:\\Users\\ianulanday\\AndroidStudioProjects\\HourLogger\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\54
-base.0=C\:\\Users\\ianulanday\\AndroidStudioProjects\\HourLogger\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\53
-path.5=classes.dex
-path.4=classes.dex
-path.3=classes.dex
-path.2=classes.dex

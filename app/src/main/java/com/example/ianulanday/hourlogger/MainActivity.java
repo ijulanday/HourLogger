@@ -5,6 +5,7 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -18,6 +19,14 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.StreamCorruptedException;
 import java.util.ArrayList;
 
 /*
@@ -36,8 +45,7 @@ public class MainActivity extends AppCompatActivity {
     ItemAdapter itemAdapter;
     ListView activityListView;
 
-    ArrayList<String> items = new ArrayList<String>();
-    ArrayList<String> times = new ArrayList<String>();
+    BaseData data;
 
     PopupWindow pw;
     View pwView;
@@ -67,8 +75,12 @@ public class MainActivity extends AppCompatActivity {
         activityListView = findViewById(R.id.activity_list);
 
         //read files from memory
+        data = (BaseData)readData();
+        if (data == null) {
+            data = new BaseData();
+        }
 
-        itemAdapter = new ItemAdapter(this, items, times);
+        itemAdapter = new ItemAdapter(this, data.items, data.times);
         activityListView.setAdapter(itemAdapter);
         activityListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -93,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
     public void onAddField(View view) {
         pwEntry.setHint("name your new activity!");
         pw.showAtLocation(mainLayout, Gravity.CENTER, 0, 0);
+
         pwEntry.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -104,8 +117,8 @@ public class MainActivity extends AppCompatActivity {
                     String entry = pwEntry.getText().toString();
 
                     if (!entry.isEmpty()) {
-                        items.add(entry);
-                        times.add("0.0");
+                        data.items.add(entry);
+                        data.times.add("0.0");
                         Toast.makeText(MainActivity.this, "new activity added!",
                                 Toast.LENGTH_SHORT).show();
                     } else {
@@ -115,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
 
                     pwEntry.setText("");
                     pw.dismiss();
+                    writeData(data);
                     return true;
                 }
 
@@ -123,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         itemAdapter.notifyDataSetChanged();
+
     }
 
     public void onEditField(final int i) {
@@ -140,11 +155,12 @@ public class MainActivity extends AppCompatActivity {
 
                     if (!entry.isEmpty()) {
 
-                        Double timeDouble = Double.parseDouble(times.get(i));
+                        Double timeDouble = Double.parseDouble(data.times.get(i));
                         timeDouble += Double.parseDouble(entry);
-                        times.set(i, timeDouble.toString());
+                        data.times.set(i, timeDouble.toString());
 
-                        Toast.makeText(MainActivity.this, "Added " + entry + " hours to \"" + items.get(i) + ".\"", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, "Added "
+                                + entry + " hours to \"" + data.items.get(i) + ".\"", Toast.LENGTH_LONG).show();
                         itemAdapter.notifyDataSetChanged();
                     } else {
                         Toast.makeText(MainActivity.this, "Never mind!",
@@ -153,6 +169,7 @@ public class MainActivity extends AppCompatActivity {
 
                     enterHrsEntry.setText("");
                     enterHrsWindow.dismiss();
+                    writeData(data);
                     return true;
                 }
 
@@ -167,13 +184,75 @@ public class MainActivity extends AppCompatActivity {
     public void onDelete(View view) {
         enterHrsWindow.dismiss();
 
-        Toast.makeText(MainActivity.this, "Activity \"" + items.get(itemClickedIndex) + "\" has been removed!",
+        Toast.makeText(MainActivity.this, "Activity \"" + data.items.get(itemClickedIndex)
+                        + "\" has been removed!",
                 Toast.LENGTH_SHORT).show();
 
-        times.remove(itemClickedIndex);
-        items.remove(itemClickedIndex);
+        data.times.remove(itemClickedIndex);
+        data.items.remove(itemClickedIndex);
 
         itemAdapter.notifyDataSetChanged();
+        writeData(data);
+    }
+
+    private Object readData() {
+        Object result;
+        FileInputStream fis;
+        ObjectInputStream ois;
+        Log.e("debugLoading", "READING CACHE...");
+        try {
+            File file = new File(getCacheDir(), "cache");
+            if (!file.exists())
+                if (!file.createNewFile())
+                    return null;
+            fis = new FileInputStream(file);
+            ois = new ObjectInputStream(fis);
+            result = ois.readObject();
+            ois.close();
+            fis.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            System.err.println("cache" + " not found");
+            return null;
+        } catch (StreamCorruptedException e) {
+            e.printStackTrace();
+            System.err.println("cache" + " input stream corrupted");
+            return null;
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.err.println("I/O error in reading " + "cache");
+            return null;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
+        return result;
+    }
+
+    /**
+     * Writes loaded app data to cache
+     */
+    private void writeData(BaseData data) {
+        Log.e("debugLoading", "WRITING CACHE...");
+        FileOutputStream fos;
+        ObjectOutputStream oos;
+        File file = new File(getCacheDir(), "cache");
+        try {
+            fos = new FileOutputStream(file, false);
+            oos = new ObjectOutputStream(fos);
+            oos.writeObject(data);
+            oos.close();
+            fos.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            System.err.println("cache" + " not found");
+        } catch (StreamCorruptedException e) {
+            e.printStackTrace();
+            System.err.println("cache" + " output stream corrupted");
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.err.println("I/O error in writing " + "cache");
+        }
     }
 
 }
