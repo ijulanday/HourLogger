@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Hour Logger</string>
+    <string name="app_name">Logger</string>
 
     <string-array name="items">
         <item>Work</item>

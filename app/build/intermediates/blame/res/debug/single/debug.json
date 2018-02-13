@@ -344,6 +344,10 @@
         "source": "C:\\Users\\ianulanday\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\fdbeff364ac800c5332ba5d1731e9942\\res\\anim\\tooltip_enter.xml"
     },
     {
+        "merged": "C:\\Users\\ianulanday\\AndroidStudioProjects\\HourLogger\\app\\build\\intermediates\\res\\merged\\debug\\drawable_dog.png.flat",
+        "source": "C:\\Users\\ianulanday\\AndroidStudioProjects\\HourLogger\\app\\src\\main\\res\\drawable\\dog.png"
+    },
+    {
         "merged": "C:\\Users\\yung_\\AndroidStudioProjects\\hourLogger\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_scrubber_control_to_pressed_mtrl_005.png.flat",
         "source": "C:\\Users\\yung_\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\2204450009bf2aeacbf371daa8e0afe3\\res\\drawable-xxxhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png"
     },

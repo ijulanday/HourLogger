@@ -27,16 +27,15 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.StreamCorruptedException;
-import java.util.ArrayList;
 
 /*
 ====================
-    Hour Logger
+    Log Stuff
 ====================
 
 Made this to learn about how memory is handled in AS as well as UI design practice.
 
-Still doesn't store anything in memory! coming soon...
+Much thanks to my boss Ami for showing me how to read/wirte mem.
 
  */
 
@@ -103,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onAddField(View view) {
-        pwEntry.setHint("name your new activity!");
+        pwEntry.setHint("Name your new thing!");
         pw.showAtLocation(mainLayout, Gravity.CENTER, 0, 0);
 
         pwEntry.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -119,10 +118,10 @@ public class MainActivity extends AppCompatActivity {
                     if (!entry.isEmpty()) {
                         data.items.add(entry);
                         data.times.add("0.0");
-                        Toast.makeText(MainActivity.this, "new activity added!",
+                        Toast.makeText(MainActivity.this, "New thing added!",
                                 Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(MainActivity.this, "nothing happened!",
+                        Toast.makeText(MainActivity.this, "Nothing happened!",
                                 Toast.LENGTH_SHORT).show();
                     }
 
@@ -141,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onEditField(final int i) {
-        enterHrsEntry.setHint("enter some time");
+        enterHrsEntry.setHint("add to the tally!");
         enterHrsWindow.showAtLocation(mainLayout, Gravity.CENTER, 0, 0);
         enterHrsEntry.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -160,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
                         data.times.set(i, timeDouble.toString());
 
                         Toast.makeText(MainActivity.this, "Added "
-                                + entry + " hours to \"" + data.items.get(i) + ".\"", Toast.LENGTH_LONG).show();
+                                + entry + " to \"" + data.items.get(i) + ".\"", Toast.LENGTH_LONG).show();
                         itemAdapter.notifyDataSetChanged();
                     } else {
                         Toast.makeText(MainActivity.this, "Never mind!",
@@ -184,7 +183,7 @@ public class MainActivity extends AppCompatActivity {
     public void onDelete(View view) {
         enterHrsWindow.dismiss();
 
-        Toast.makeText(MainActivity.this, "Activity \"" + data.items.get(itemClickedIndex)
+        Toast.makeText(MainActivity.this, "\"" + data.items.get(itemClickedIndex)
                         + "\" has been removed!",
                 Toast.LENGTH_SHORT).show();
 
